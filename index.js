@@ -30,7 +30,7 @@ function userParkInputs(query, maxLimit){
     }
     const queryString = formatQuery(params);
     const url = searchURL + '?' + queryString;
-    console.log(url);
+
 
     //fetch info
     fetch(url)
@@ -70,7 +70,7 @@ function displayResults(responseJson){
             </li>`
         )
     };
-    console.log(responseJson);
+    
 };
 
 //clear current for new search
