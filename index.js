@@ -2,7 +2,6 @@ const apiKey = '7T78lewxicIGLyliF5GhBAKtren1HjrkLIoblTa4';
 const searchURL = 'https://developer.nps.gov/api/v1/parks';
 
 
-
 //handle form submit
 function formSubmit(){
     $('form').submit(event => {
@@ -19,6 +18,7 @@ function userParkInputs(query, maxLimit){
     const params = {
         stateCode: query,
         limit: maxLimit,
+        fields: 'addresses',
         api_key: apiKey
     }
     const queryString = formatQuery(params);
@@ -47,7 +47,6 @@ function formatQuery(params){
 
 
 
-
 //handle & display info
 function displayResults(responseJson){
     clearCurrent();
@@ -57,10 +56,14 @@ function displayResults(responseJson){
                 <a href="${responseJson.data[i].url}" target="-blank">
                 <h2>${responseJson.data[i].fullName}</h2></a>
                 <p>${responseJson.data[i].description}</p>
+                <p class="address">
+                ${responseJson.data[i].addresses[0].line1}<br>
+                ${responseJson.data[i].addresses[0].city}, ${responseJson.data[i].addresses[0].stateCode} ${responseJson.data[i].addresses[0].postalCode}</br>
                 <p>Visit their website: <a href="${responseJson.data[i].url}" target="-blank">${responseJson.data[i].url}</a></p></a>
             </li>`
         )
     };
+    console.log(responseJson);
 };
 
 //clear current for new search
