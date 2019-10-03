@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>National Park Service App</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Find a National Park near you!</h1>
+    </header>
+    <main>
+        <form>
+            <label for="chooseState">Please choose the state or states below that you would like to search:</label>
+            <input type="text" name="chooseState" id="chooseState" required>
+            <label>Please enter the max number of results you would like to recieve (1 to 50):</label>
+            <input id="chooseNumber">
+            <button type="submit">Submit</button>
+        </form>
+        <section id="searchResults">
+            <ul>
+
+            </ul>
+
+        </section>
+    </main>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="index.js"></script>
+</body>
+</html>

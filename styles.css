@@ -1,0 +1,44 @@
+*{box-sizing: border-box;}
+body{
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    margin:0;
+    padding: 10px 40px;
+    
+}
+header, main{
+    max-width: 1000px;
+    margin: 0 auto;
+}
+h1{color: #006400;}
+label, input {
+    display:block;
+}
+
+input{
+    margin-bottom: 10px;
+    padding: 5px 5px;
+}
+button{
+    padding:8px 14px;
+    margin-top: 8px;
+    cursor: pointer;
+}
+li{
+    list-style: none;
+   
+
+}
+h2{ margin: 10px 0;}
+ul{
+    padding:0;
+    margin-top:45px;
+}
+li a{
+    
+    color: #006400;
+
+}
+li p:last-of-type{
+    margin: 10px 0 30px 0;
+}
+li p a{color:blue;}
