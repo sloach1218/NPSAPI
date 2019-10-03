@@ -46,3 +46,6 @@ li p a{color:blue;}
     font-size:14px;
     font-style: italic;
 }
+.error{
+    color:red;
+}

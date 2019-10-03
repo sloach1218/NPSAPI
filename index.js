@@ -6,8 +6,7 @@ const searchURL = 'https://developer.nps.gov/api/v1/parks';
 function formSubmit(){
     $('form').submit(event => {
         event.preventDefault();
-        const parks = $('#chooseState').val().toUpperCase().replace(/\s+/g, '');
-        
+        const parks = $('#chooseState').val().toUpperCase();
         let maxLimit = 10;
         if ($('#chooseNumber').val() === ''){
             
@@ -17,7 +16,7 @@ function formSubmit(){
         
         userParkInputs(parks, maxLimit);
       })
-}
+};
 
 //get user inputs
 function userParkInputs(query, maxLimit){
@@ -40,7 +39,9 @@ function userParkInputs(query, maxLimit){
         }
         throw new Error(response.statusText);
     })
+    
     .then(responseJson => displayResults(responseJson))
+    
     .catch(err => {alert(`There was an error! Something went wrong: ${err.message}`)});
 
 };
@@ -57,6 +58,7 @@ function formatQuery(params){
 //handle & display info
 function displayResults(responseJson){
     clearCurrent();
+    
     for (let i = 0; i < responseJson.data.length; i++){
         $('ul').append(
             `<li>
@@ -70,6 +72,12 @@ function displayResults(responseJson){
             </li>`
         )
     };
+
+    const checkIfEmpty = $('ul');
+    if(checkIfEmpty.is(':empty')){
+        $('ul').append(`<li class="error">Something went wrong with your search, please check that you entered valid states in the correct format.</li>`)
+    }
+    
     
 };
 
