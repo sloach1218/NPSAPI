@@ -6,17 +6,24 @@ const searchURL = 'https://developer.nps.gov/api/v1/parks';
 function formSubmit(){
     $('form').submit(event => {
         event.preventDefault();
-        const parks = $('#chooseState').val().toUpperCase();
-        const maxLimit = $('#chooseNumber').val();
+        const parks = $('#chooseState').val().toUpperCase().replace(/\s+/g, '');
+        
+        let maxLimit = 10;
+        if ($('#chooseNumber').val() === ''){
+            
+        }else{
+            maxLimit = $('#chooseNumber').val();
+        }
+        
         userParkInputs(parks, maxLimit);
-       
       })
 }
 
 //get user inputs
 function userParkInputs(query, maxLimit){
+    
     const params = {
-        stateCode: query,
+        stateCode: `${query}`,
         limit: maxLimit,
         fields: 'addresses',
         api_key: apiKey
@@ -41,7 +48,7 @@ function userParkInputs(query, maxLimit){
 //create query string
 function formatQuery(params){
     const queryItems = Object.keys(params)
-        .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`)
+        .map(key => `${encodeURIComponent(key)}=${params[key]}`)
     return queryItems.join('&');
 }
 

@@ -14,10 +14,10 @@
     </header>
     <main>
         <form>
-            <label for="chooseState">Please choose the state or states below that you would like to search:</label>
+            <label for="chooseState">Please list the state or states below that you would like to search in abbreviated format separated by commas (ex: WI, IL):</label>
             <input type="text" name="chooseState" id="chooseState" required>
-            <label>Please enter the max number of results you would like to recieve (1 to 50):</label>
-            <input id="chooseNumber">
+            <label>Optional - What is the max number of results you would like to recieve (1 to 50)?:</label>
+            <input type="number" id="chooseNumber" min="1" max="50">
             <button type="submit">Submit</button>
         </form>
         <section id="searchResults">
